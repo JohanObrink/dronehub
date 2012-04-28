@@ -11,7 +11,7 @@
     }
   ],
   "scripts": {
-    "start": "node dronehub.js",
+    "start": "node ./app/main.js",
     "test": "vows --spec --isolate"
   },
   "repository": {
@@ -26,7 +26,8 @@
     "jade": "~0.25.0",
     "stylus": "~0.26.0",
     "mongoose": "~2.6.0",
-    "socket.io": "~0.9.6"
+    "socket.io": "~0.9.6",
+    "express-resource": "~0.2.4"
   },
   "noAnalyze": true,
   "devDependencies": {
