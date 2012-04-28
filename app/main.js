@@ -4,8 +4,8 @@ var express = require('express'),
 
 require('express-resource');
 
-app.resource('/', require('./modules/root.js'));
-app.resource('drones', require('./modules/drones.js'));
+app.resource('/', require('./modules/root'));
+app.resource('drones', require('./modules/drones'));
 
 app.listen(port);
 console.log('Listening on port ' + port);
