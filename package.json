@@ -1,0 +1,40 @@
+{
+  "name": "dronehub",
+  "preferGlobal": "true",
+  "version": "0.0.1",
+  "author": "Johan Öbrink <johan.obrink@gmail.com>",
+  "description": "App for monitoring, controlling and watching RC drones",
+  "contributors": [
+    {
+      "name": "Johan Öbrink",
+      "email": "johan.obrink@gmail.com"
+    }
+  ],
+  "scripts": {
+    "start": "node dronehub.js",
+    "test": "vows --spec --isolate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JohanObrink/dronehub.git"
+  },
+  "keywords": [
+    "rc"
+  ],
+  "dependencies": {
+    "express": "~2.5.9",
+    "jade": "~0.25.0",
+    "stylus": "~0.26.0",
+    "mongoose": "~2.6.0",
+    "socket.io": "~0.9.6"
+  },
+  "noAnalyze": true,
+  "devDependencies": {
+    "vows": "0.5.x"
+  },
+  "bundleDependencies": [],
+  "license": "MIT",
+  "engine": {
+    "node": ">=0.6"
+  }
+}
