@@ -2,3 +2,4 @@ node_modules
 *.log
 data
 .DS_store
+*.css
