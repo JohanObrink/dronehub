@@ -27,7 +27,8 @@
     "stylus": "~0.26.0",
     "mongoose": "~2.6.0",
     "socket.io": "~0.9.6",
-    "express-resource": "~0.2.4"
+    "express-resource": "~0.2.4",
+    "bootstrap-stylus": "~0.2.1"
   },
   "noAnalyze": true,
   "devDependencies": {

@@ -1,3 +1,3 @@
 exports.index = function(req, res) {
-	res.send('Hello drones!');
+	res.render('index.jade', { title: 'Hello' });
 }
