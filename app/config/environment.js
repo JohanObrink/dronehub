@@ -11,14 +11,18 @@ module.exports = function(app, express){
 	app.use(express.methodOverride());
 
 	// Stylus
+	function compile(str, path) {
+		return stylus(str)
+			.set('filename', path)
+			.use(bootstrap());
+	}
 	app.use(stylus.middleware({
-		src: __dirname + '/public',
-		compile: function(str, path) {
-			return stylus(str)
-				.set('filename', path)
-				.use(bootstrap());
-		}
+		src: __dirname + '/../../public',
+		compile: compile
 	}));
+
+	app.use(app.router);
+	app.use(express.static(__dirname + '/../../public'));
 	
 	// Logger
 	app.configure(function() {
@@ -31,11 +35,13 @@ module.exports = function(app, express){
 			dumpExceptions: true,
 			showStack: true
 		}));
+		app.set('db', 'localhost/droidhub');
 	});
 
 	// Production
 	app.configure('production', function() {
 		app.use(express.errorHandler());
+		app.set('db', '');
 	});
 };
 

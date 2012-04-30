@@ -1,16 +1,17 @@
-var util = require('util');
+var util = require('util'),
+	Drone = require('../models/drone');
 
 // Listing page for drones
 exports.index = function(req, res) {
-	res.send('Drones!');
+	res.render('drones/index', util.inspect(req.drone));
 }
 
 exports.show = function(req, res) {
-	res.send('drones#show: ' + util.inspect(req.drone));
+	res.render('drones/show', util.inspect(req.drone));
 }
 
 exports.new = function(req, res) {
-	res.send('drones#new');
+	res.render('drones/new');
 }
 
 exports.create = function(req, res) {
@@ -18,7 +19,7 @@ exports.create = function(req, res) {
 }
 
 exports.edit = function(req, res) {
-	res.send('drones#edit: ' + util.inspect(req.drone));
+	res.render('drones/edit', util.inspect(req.drone));
 }
 
 exports.update = function(req, res) {
@@ -26,6 +27,8 @@ exports.update = function(req, res) {
 }
 
 exports.load = function(id, callback) {
-	var obj = { id: id, name: 'Johan ' + id };
-	callback(null, obj);
+	if(!id)
+		Drone.find(null, callback);
+	else
+		Drone.find({id: id}, callback);
 }
