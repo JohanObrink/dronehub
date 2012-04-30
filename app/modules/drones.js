@@ -30,5 +30,6 @@ exports.load = function(id, callback) {
 	if(!id)
 		Drone.find(null, callback);
 	else
-		Drone.find({id: id}, callback);
+		callback(null, {});
+		//Drone.find({id: id}, callback);
 }
