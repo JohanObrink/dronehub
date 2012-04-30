@@ -35,7 +35,7 @@ module.exports = function(app, express){
 			dumpExceptions: true,
 			showStack: true
 		}));
-		app.set('db', 'localhost/droidhub');
+		app.set('db', 'mongo://localhost/droidhub');
 	});
 
 	// Production
