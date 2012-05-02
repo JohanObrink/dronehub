@@ -1,8 +1,0 @@
-.span3.well.sidebar-nav
-	h1= title
-	- if (drones.length)
-		ul.nav.nav-list
-		- drones.forEach(function(drone){
-		li
-			a(href="/drones/#{drone.id}/")= drone.name
-		- })
