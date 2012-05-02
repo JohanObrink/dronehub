@@ -3,32 +3,34 @@ var util = require('util'),
 
 // Listing page for drones
 exports.index = function(req, res) {
-	res.render('drones/index', util.inspect(req.drone));
+	Drone.find({}, function(err, data) {
+		res.render('drones/index', { title: 'Drones', drones: data });
+	});
 }
 
 exports.show = function(req, res) {
-	res.render('drones/show', util.inspect(req.drone));
+	Drone.findOne({ id: req.params.id }, function(err, data) {
+		if(err)
+			throw err;
+		res.render('drones/show', { title: 'Drones | ', drone: data });
+	});
 }
 
 exports.new = function(req, res) {
-	res.render('drones/new');
+	res.render('drones/new', { title: 'New drone' });
 }
 
 exports.create = function(req, res) {
-	res.send('drones#create');
+	var drone = new Drone();
+	drone.name = req.body.name;
+	drone.save();
+	res.redirect('/drones/' + drone.id + '/');
 }
 
 exports.edit = function(req, res) {
-	res.render('drones/edit', util.inspect(req.drone));
+	res.render('drones/edit', { title: 'Drones', drone: util.inspect(req.drone) });
 }
 
 exports.update = function(req, res) {
 	res.send('drones#update: ' + util.inspect(req.drone));
-}
-
-exports.load = function(id, callback) {
-	if(!id)
-		Drone.find(null, callback);
-	else
-		Drone.find({id: id}, callback);
 }
