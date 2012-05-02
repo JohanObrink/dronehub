@@ -1,6 +1,5 @@
 {
   "name": "dronehub",
-  "preferGlobal": "true",
   "version": "0.0.1",
   "author": "Johan Öbrink <johan.obrink@gmail.com>",
   "description": "App for monitoring, controlling and watching RC drones",
@@ -10,33 +9,29 @@
       "email": "johan.obrink@gmail.com"
     }
   ],
-  "scripts": {
-    "start": "node ./app/main.js",
-    "test": "vows --spec --isolate"
-  },
+  "engines": [
+    "node >= 0.6.0"
+  ],
+  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/JohanObrink/dronehub.git"
   },
-  "keywords": [
-    "rc"
-  ],
   "dependencies": {
-    "express": "~2.5.9",
-    "jade": "~0.25.0",
-    "stylus": "~0.26.0",
-    "mongoose": "~2.6.0",
-    "socket.io": "~0.9.6",
-    "express-resource": "~0.2.4",
-    "bootstrap-stylus": "~0.2.1"
+    "ejs": "*",
+    "ejs-ext": "*",
+    "express": "~2.x",
+    "railway": ">= 0.2.6",
+    "jugglingdb": ">= 0.1.0",
+    "coffee-script": ">= 1.1.1"
   },
-  "noAnalyze": true,
   "devDependencies": {
-    "vows": "0.5.x"
+    "nodeunit": "*",
+    "sinon": "*",
+    "semicov": "*"
   },
-  "bundleDependencies": [],
-  "license": "MIT",
-  "engine": {
-    "node": ">=0.6"
+  "scripts": {
+    "start": "railway server 3000",
+    "test": "nodeunit test/*/*"
   }
 }
