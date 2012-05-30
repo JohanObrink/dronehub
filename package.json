@@ -23,7 +23,8 @@
     "express": "~2.x",
     "railway": ">= 0.2.6",
     "jugglingdb": ">= 0.1.0",
-    "coffee-script": ">= 1.1.1"
+    "coffee-script": ">= 1.1.1",
+    "everyauth": ">= 0.2.32"
   },
   "devDependencies": {
     "nodeunit": "*",

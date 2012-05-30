@@ -1,4 +1,5 @@
-var express    = require('express');
+var express     = require('express'),
+    auth   = require('./auth');
 
 app.configure(function(){
     var cwd = process.cwd();
@@ -12,6 +13,7 @@ app.configure(function(){
     app.use(express.bodyParser());
     app.use(express.cookieParser('secret'));
     app.use(express.session({secret: 'secret'}));
+    app.use(auth.middleware());
     app.use(express.methodOverride());
     app.use(app.router);
 });

@@ -4,6 +4,12 @@
 
 <div class="row">
     <div class="span12">
+        <% if(!everyauth.loggedIn) { %>Not logged in<% } %>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span12">
         <p><%- link_to('<i class="icon-plus icon-white"></i> New drone', path_to.new_drone(), {class: 'btn btn-primary'}) %></>
     </div>
 </div>
