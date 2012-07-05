@@ -1,9 +1,0 @@
-<div class="page-header"><h1>Edit drone</h1></div>
-
-<% form_for(drone, {action: path_to.drone(drone), method: 'PUT', id: "drone_form", class: 'form-horizontal'}, function (form) { %>
-    <%- partial('drones/form.ejs', {locals: {form: form, drone: drone}}) %>
-    <div class="form-actions">
-        <%- form.submit('<i class="icon-ok icon-white"></i> Update drone', {class: 'btn btn-primary'}) %> or
-        <%- link_to('Cancel', path_to.drone(drone), {class: 'btn'}) %>
-    </div>
-<% });%>

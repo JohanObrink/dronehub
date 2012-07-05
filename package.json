@@ -1,38 +1,17 @@
 {
-  "name": "dronehub",
-  "version": "0.0.1",
-  "author": "Johan Öbrink <johan.obrink@gmail.com>",
-  "description": "App for monitoring, controlling and watching RC drones",
-  "contributors": [
-    {
-      "name": "Johan Öbrink",
-      "email": "johan.obrink@gmail.com"
-    }
-  ],
-  "engines": [
-    "node >= 0.6.0"
-  ],
-  "main": "server.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JohanObrink/dronehub.git"
-  },
-  "dependencies": {
-    "ejs": "*",
-    "ejs-ext": "*",
-    "express": "~2.x",
-    "railway": ">= 0.2.6",
-    "jugglingdb": ">= 0.1.0",
-    "coffee-script": ">= 1.1.1",
-    "everyauth": ">= 0.2.32"
-  },
-  "devDependencies": {
-    "nodeunit": "*",
-    "sinon": "*",
-    "semicov": "*"
-  },
-  "scripts": {
-    "start": "railway server 3000",
-    "test": "nodeunit test/*/*"
-  }
+	"name": "Dronehub",
+	"version": "0.0.1",
+	"dependencies": {
+		"underscore": "*",
+		"socket.io": "*",
+		"socket.io-client": "*"
+	},
+	"devDependencies": {
+		"mocha": "*",
+		"should": "*"
+	},
+	"scripts": {
+		"start": "",
+		"test": "mocha -R spec test/*.js"
+	}
 }
