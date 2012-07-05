@@ -13,7 +13,7 @@ describe('DroneServer', function() {
 	beforeEach(function() {
 
 		var socket = io.listen(++port, { 'log level': 1 });
-		server = require('../lib/droneServer').create(socket);
+		server = require('../../lib/droneServer').create(socket);
 		host = 'http://localhost:' + port;
 
 	});

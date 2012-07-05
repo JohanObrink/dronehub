@@ -12,6 +12,6 @@
 	},
 	"scripts": {
 		"start": "",
-		"test": "mocha -R spec test/*.js"
+		"test": "mocha -R spec test/integration/*.js"
 	}
 }
