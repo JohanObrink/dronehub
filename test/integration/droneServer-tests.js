@@ -6,6 +6,7 @@ var should = require('should'),
 	async = require('async'),
 
 	Drone = require('../../lib/drone').Drone,
+	DroneClient = require('../../lib/droneClient').DroneClient,
 	User = require('../../lib/user').User;
 
 var port = 5000,
