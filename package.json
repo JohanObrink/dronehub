@@ -9,11 +9,12 @@
 		"mongoose": "*"
 	},
 	"devDependencies": {
+		"jake": "*",
 		"mocha": "*",
-		"should": "*"
+		"chai": "*"
 	},
 	"scripts": {
 		"start": "",
-		"test": "NODE_ENV=test mocha -R spec test/integration/*.js"
+		"test": "jake test"
 	}
 }
