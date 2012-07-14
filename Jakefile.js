@@ -20,6 +20,38 @@ task('intest', [], function() {
 
 });
 
+desc('Integration tests');
+task('spec', [], function() {
+
+	var helper = 'test/spec/test_helper';
+
+	cp.exec('coffee -c ' + helper + '.coffee', function(err, output) {
+
+		if(err)
+			throw err;
+
+		var command = 'NODE_ENV=test ' +
+			'mocha -r should -R spec ' +
+			'--compilers coffee:coffee-script ' +
+			'--require ' + helper + '.js ' +
+			'--colors ' +
+			'test/spec/*.coffee';
+		
+		cp.exec(command, function(err, output) {
+
+			console.log(output);
+
+			if(err)
+				throw err;			
+
+		});
+
+	});
+
+	
+
+});
+
 desc('Unit tests');
 task('test', [], function() {
 

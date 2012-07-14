@@ -1,20 +1,23 @@
 {
-	"name": "Dronehub",
-	"version": "0.0.1",
-	"dependencies": {
-		"underscore": "*",
-		"async": "*",
-		"socket.io": "*",
-		"socket.io-client": "*",
-		"mongoose": "*"
-	},
-	"devDependencies": {
-		"jake": "*",
-		"mocha": "*",
-		"chai": "*"
-	},
-	"scripts": {
-		"start": "",
-		"test": "jake test"
-	}
+  "name": "Dronehub",
+  "version": "0.0.1",
+  "dependencies": {
+    "underscore": "*",
+    "async": "*",
+    "socket.io": "*",
+    "socket.io-client": "*",
+    "mongoose": "*"
+  },
+  "devDependencies": {
+    "jake": "*",
+    "mocha": "*",
+    "chai": "*",
+    "mocha-cakes": "0.9.0",
+    "should": "0.6.3",
+    "coffee-script": "*"
+  },
+  "scripts": {
+    "start": "",
+    "test": "jake test"
+  }
 }
