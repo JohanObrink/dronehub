@@ -122,7 +122,7 @@ describe('Drone', function() {
 				expect(err).to.not.exist;
 				expect(reply).to.equal(expectedReply);
 				
-				client.emit('control.set', controlData);
+				client.emit('control.set', controlData, function() {});
 			});
 		});
 
