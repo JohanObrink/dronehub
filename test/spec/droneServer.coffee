@@ -6,21 +6,26 @@ Feature "DroneServer",
 		Scenario "Authentication", ->
 			server = createDroneServer()
 
-			Given ->
-				I "am not authenticated", (done) ->
-					me = clientIo.connect(host)
-					me.on 'connect', (err) ->
-						should.not.exist err
-						done()
+			Given "am not authenticated", (done) ->
+				me = clientIo.connect(host)
+				me.on 'connect', (err) ->
+					expect(err).to.not.exist
+					done()
 
-				And "There is a Drone accepting authentication", (done) ->
+			And "There is a Drone accepting authentication", (done) ->
+				addDrone (err, drone) ->
+					expect(err).to.not.exist
+
 					boat = clientIo.connect(host)
-					boat.on 'connect', ->
-						boat.emit 'connect-drone', 'panda', (err) ->
-							should.not.exist err
+					boat.on 'connect', (err) ->
+						expect(err).to.not.exist
+						
+						boat.emit 'connect_drone', drone.id, (err) ->
+							expect(err).to.not.exist
 							done()
 
-			When ->
-				I "call takeover", ->
+			When "I call takeover", (done) ->
+				done()
 
-			Then "it should recieve my data", ->
+			Then "it should recieve my data", (done) ->
+				done()

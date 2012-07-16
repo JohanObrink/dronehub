@@ -31,7 +31,7 @@ task('spec', [], function() {
 			throw err;
 
 		var command = 'NODE_ENV=test ' +
-			'mocha -r should -R spec ' +
+			'mocha -r mocha-cakes -R spec ' +
 			'--compilers coffee:coffee-script ' +
 			'--require ' + helper + '.js ' +
 			'--colors ' +

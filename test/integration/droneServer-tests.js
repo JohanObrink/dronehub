@@ -79,7 +79,7 @@ describe('DroneServer', function() {
 		client.on('connect', function() {
 			expect(_.size(server.clients)).to.equal(1);
 
-			client.emit('connect_drone', drone._id, function(err) {
+			client.emit('drone_connect', { id: drone._id, events: [] }, function(err) {
 				expect(err).to.be.undefined;
 				expect(_.size(server.clients)).to.equal(1);
 				expect(_.size(server.drones)).to.equal(1);
@@ -96,7 +96,7 @@ describe('DroneServer', function() {
 		client.on('connect', function() {
 			expect(_.size(server.clients)).to.equal(1);
 
-			client.emit('connect_drone', 'ed-209', function(err) {
+			client.emit('drone_connect', 'ed-209', function(err) {
 				expect(err).to.not.be.null;
 				expect(_.size(server.clients)).to.equal(1);
 				expect(_.size(server.drones)).to.equal(0);

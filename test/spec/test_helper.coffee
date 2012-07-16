@@ -2,6 +2,7 @@ global.Drone = require('../../lib/drone').Drone
 global.User = require('../../lib/user').User
 global.io = require('socket.io')
 global.clientIo = require('socket.io-client')
+global.expect = require('chai').expect
 
 # mocha cakes Gherkin syntax
 require('mocha-cakes')
@@ -19,7 +20,7 @@ global.host = ''
 
 # Utility functions
 global.createDroneServer = () ->
-	socket = io.listen(++port, { 'log level': 3 })
+	socket = io.listen(++port, { 'log level': 1 })
 	global.host = 'http://localhost:' + port
 
 	require('../../lib/droneServer').create(socket)

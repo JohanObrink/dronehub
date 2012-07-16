@@ -1,6 +1,7 @@
 var Drone = require('../../lib/drone').Drone;
 var User = require('../../lib/user').User;
 var io = require('socket.io');
+var clientIo = require('socket.io-client');
 
 
 
@@ -53,3 +54,25 @@ global.removeUsers = function(cb) {
 		cb(err);
 	});
 };
+
+global.connectClient = function(cb) {
+	var me = clientIo.connect(host, { transports: ['websocket'], 'force new connection': true });
+	me.on('connect', function(err) {
+		cb(err, me);
+	});
+}
+global.connectDrone = function(id, events, cb) {
+	var drone = clientIo.connect(host, { transports: ['websocket'], 'force new connection': true });
+	drone.on('connect', function(err) {
+		if(err) {
+			cb(err);
+		} else {
+
+			var data = { id: id, events: events };
+
+			drone.emit('drone_connect', data, function() {
+				cb(null, drone);
+			});
+		}
+	});
+}
