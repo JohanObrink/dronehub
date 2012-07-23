@@ -108,6 +108,7 @@ describe('Drone', function() {
 			var indata = { credentials: { id: drone.id, foo: 'bar' }, events: clientEvents };
 			var expectedReply = true;
 			var controlData = { rudder: -0.5, throttle: 0.75 };
+			var gpsData = { lat: 1.098, lon: 50.234 };
 
 			boat.on('auth', function(data, callback) {
 				expect(data).to.eql(indata);
@@ -115,6 +116,11 @@ describe('Drone', function() {
 			});
 			boat.on('control.set', function(data, callback) {
 				expect(data).to.eql(controlData);
+
+				boat.emit('gps.fix', gpsData, function() {});
+			});
+			client.on('gps.fix', function(data) {
+				expect(data).to.eql(gpsData);
 				done();
 			});
 
