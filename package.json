@@ -6,7 +6,11 @@
     "async": "*",
     "socket.io": "*",
     "socket.io-client": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "jade": ">= 0.27.0",
+    "stylus": ">= 0.28.2",
+    "locomotive": ">= 0.2.0",
+    "express": "2.5.11"
   },
   "devDependencies": {
     "jake": "*",

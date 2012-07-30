@@ -1,0 +1,39 @@
+!!!
+html(lang="en")
+	head
+		meta(charset='utf-8')
+		title= title
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+		link(rel="stylesheet", href="/css/bootstrap.min.css")
+		link(rel="stylesheet", href="/css/bootstrap-responsive.min.css")
+		link(rel="stylesheet", href="/css/main.css")
+		
+		//if lt IE 9
+			script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+
+	body
+		nav.navbar.navbar-fixed-top
+			.navbar-inner
+				.container
+
+					a.brand(href='#') dronehub
+
+					ul.nav.pull-right.actions
+						li
+							a(href='/')
+								i.icon-white.icon-user
+								|  Login
+						li
+							a(href='/')
+								i.icon-white.icon-pencil
+								|  Signup
+
+					ul.nav
+						li
+							a(href='/') Home
+						li
+							a(href='/') Drones
+		
+		article.container!= body
+		script(type="text/javascript", src="/js/bootstrap.js")
